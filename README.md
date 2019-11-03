@@ -1,6 +1,5 @@
-# autolara
-# versi 1.0.0
-# Author: Lukman N Hakim, Nov 2019
+# AutoLara
+
 
 Tools ini dibuat untuk menyederhanakan beberapa proses dalam 
 pembuatan sistem menggunakan Framework Laravel. 
