@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * Version 1.0.0
  * @author Lukman N Hakim @lookmaniak, Nov 2019
  */
-public class EqmsBaseModifier {
+public class AutoLara {
 
     /**
      * @param args the command line arguments
