@@ -22,9 +22,9 @@ akan berada pada folder defaultnya. Tapi jika anda memberikan nama folder untuk 
 module nya maka file tersebut akan berada di:
 
 - Migration [folder default]
-- Controller [app/Http/Controllers/<nama module>/ControllerFile.php]
-- Resource [app/Http/Resources/<nama module>/ResourceFile.php]
-- Model [app/Modules/<nama module>/ModelFile.php]
+- Controller [app/Http/Controllers/<strong>nama module</strong>/ControllerFile.php]
+- Resource [app/Http/Resources/<strong>nama module</strong>/ResourceFile.php]
+- Model [app/Modules/<strong>nama module</strong>/ModelFile.php]
   
 Selanjutnya anda akan diminta untuk memasukan nama file Migration yang telah tergenerate
 di folder default migration Laravel.
@@ -51,7 +51,7 @@ Untuk dapat menggunakan tool ini, file autolara.jar disimpan pada
 root direktori project Laravel. Kemudian atur CD pada folder project Laravel.
 Jalankan file .jar dengan mengeksekusi perintah
 
-java -jar autolara.jar
+<b>java -jar autolara.jar</b>
 
 Sebelumnya, anda harus memiliki Java Runtime pada sistem linux.
 
