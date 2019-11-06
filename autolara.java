@@ -292,20 +292,22 @@ public class AutoLara {
                 "\t\t\t\t->onDelete('"+ onDelete + "');\n\n\t\t\t//<foreignKey>");
                 
             //eachtime  foreign key defined, modify foreign Class and current class with relational method 
-            modelFile = modelFile.replace("//<belongsTo>", "public function "+ modelClassTarget.toLowerCase() +"()\n" +
-                            "\t\t{\n" +
-                            "\t\t\treturn $this->belongsTo("+ modelClassTarget +"::class);\n" +
-                            "\t\t}\n\t\t//<belongsTo>");
-            
+            if(!modelFile.contains("belongsTo(" + modelClassTarget)) {
+                modelFile = modelFile.replace("//<belongsTo>", "public function "+ modelClassTarget.toLowerCase() +"()\n" +
+                                "\t\t{\n" +
+                                "\t\t\treturn $this->belongsTo("+ modelClassTarget +"::class);\n" +
+                                "\t\t}\n\t\t//<belongsTo>");
+            }
             //modify foreign Class for relational table configuration
             if(!isSkipped) {
                 Path modelTargetPath = Paths.get(modelTargetUri);
                 String modelTargetFile = new String(Files.readAllBytes(modelTargetPath), charset);
-                modelTargetFile = modelTargetFile.replace("//<hasMany>","public function "+ componentName.toLowerCase() +"()\n" +
-                "\t\t{\n" +
-                "\t\t\treturn $this->hasMany(" + componentName + "::class);\n" +
-                "\t\t}\n\t\t//<hasMany>");
-                
+                if(!modelTargetFile.contains("hasMany(" + componentName)) {
+                    modelTargetFile = modelTargetFile.replace("//<hasMany>","public function "+ componentName.toLowerCase() +"()\n" +
+                    "\t\t{\n" +
+                    "\t\t\treturn $this->hasMany(" + componentName + "::class);\n" +
+                    "\t\t}\n\t\t//<hasMany>");
+                }
                 //write to foreign target model file
                 Files.write(modelTargetPath, modelTargetFile.getBytes(), StandardOpenOption.CREATE);
                 System.out.println("-- File class model target berhasil diupdate!");
